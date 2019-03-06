@@ -1,40 +1,55 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
+import { spaceId, environmentId, accessToken } from '../contentful.js';
 
 
-const PostLink = (props) => (
-  <li>
-    <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
-      <a>{props.title}</a>
-    </Link>
-  </li>
-)
-
-const Index = (props) => (
+const Index = ({question}) => (
   <Layout>
-    <p>Hello Next.js</p>
-    <ul>
-      {props.shows.map(({show}) => (
-        <li key={show.id}>
-          <Link as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
-            <a>{show.name}</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <h2 className="question">{question.text}</h2>
   </Layout>
 )
 
-Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
+async function entryCount() {
+  const url = `https://cdn.contentful.com/spaces/${spaceId}/environments/${environmentId}/entries?content_type=question&access_token=${accessToken}&limit=0`;
+  const res = await fetch(url)
   const data = await res.json()
 
-  console.log(`Show data fetched. Count: ${data.length}`)
+  return data.total;
+}
 
-  return {
-    shows: data
-  }
+async function getSpecificEntry(index) {
+  const url = `https://cdn.contentful.com/spaces/${spaceId}/environments/${environmentId}/entries?content_type=question&access_token=${accessToken}&skip=${index}&limit=1`;
+  const res = await fetch(url)
+  const data = await res.json()
+
+  return { text: JSON.stringify(data.items[0].fields.text) };
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+async function randomEntryIndex() {
+  const max = await entryCount();
+
+  const index = getRandomInt(max-1);
+
+  const entry = await getSpecificEntry(index);
+
+  return entry;
+}
+
+async function entryToShow() {
+  const entry = await randomEntryIndex();
+
+  return entry;
+}
+
+Index.getInitialProps = async function() {
+  const entry = await entryToShow();
+
+  return { question: entry }
 }
 
 export default Index
