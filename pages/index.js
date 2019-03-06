@@ -6,7 +6,9 @@ import { spaceId, environmentId, accessToken } from '../contentful.js';
 
 const Index = ({question}) => (
   <Layout>
-    <h2 className="question">{question.text}</h2>
+    <blockquote>
+      <p> {question.text} </p>
+    </blockquote>
   </Layout>
 )
 
