@@ -1,10 +1,12 @@
 import Header from './Header'
-
-const layoutStyle = {
-}
+import Head from 'next/head';
 
 const Layout = (props) => (
-  <div style={layoutStyle}>
+  <div>
+    <Head>
+      <link href="/static/styles.css" rel="stylesheet" />
+
+    </Head>
     <Header />
     {props.children}
   </div>
