@@ -1,15 +1,16 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
+import smartQuotes from 'smartquotes';
 import { spaceId, environmentId, accessToken } from '../contentful.js';
 
 
 const Index = ({question}) => (
   <Layout>
-    <blockquote>
-      <p> {question.text} </p>
-      <footer>
-        <a href="{question.attribution.url}">{question.attribution.name}</a>
+    <blockquote className="container">
+      <p className="question">{smartQuotes(question.text)}</p>
+      <footer className="question-footer">
+        <p className="citation">&ndash;&nbsp;<a href="{question.attribution.url}" className="citation-link">{question.attribution.name}</a></p>
       </footer>
     </blockquote>
   </Layout>
