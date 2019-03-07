@@ -8,6 +8,9 @@ const Index = ({question}) => (
   <Layout>
     <blockquote>
       <p> {question.text} </p>
+      <footer>
+        <a href="{question.attribution.url}">{question.attribution.name}</a>
+      </footer>
     </blockquote>
   </Layout>
 )
@@ -25,7 +28,15 @@ async function getSpecificEntry(index) {
   const res = await fetch(url)
   const data = await res.json()
 
-  return { text: JSON.stringify(data.items[0].fields.text) };
+  const entryFromContentful = data.items[0].fields;
+
+  return { 
+    text: entryFromContentful.text,
+    attribution: {
+      name: entryFromContentful.attributionName,
+      url: entryFromContentful.attributionUrl
+    }
+  };
 }
 
 function getRandomInt(max) {
