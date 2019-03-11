@@ -8,7 +8,7 @@
     "dev": "node server.js",
     "heroku-postbuild": "next build",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "node server.js",
     "prestart": "check-node-version --package",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +22,7 @@
   "dependencies": {
     "check-node-version": "^3.2.0",
     "express": "^4.16.4",
+    "express-force-ssl": "^0.3.2",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^8.0.3",
     "react": "^16.8.3",
