@@ -10,7 +10,7 @@ const Index = ({question}) => (
     <blockquote className="container">
       <p className="question">{smartQuotes(question.text)}</p>
       <footer className="question-footer">
-        <p className="citation">&ndash;&nbsp;<a href="{question.attribution.url}" className="citation-link">{question.attribution.name}</a></p>
+        <p className="citation">&ndash;&nbsp;<a href={question.attribution.url} className="citation-link">{question.attribution.name}</a></p>
       </footer>
     </blockquote>
   </Layout>
