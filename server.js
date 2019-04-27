@@ -1,6 +1,7 @@
 const express = require('express')
 const next = require('next')
 const enforceSSL = require('express-force-ssl');
+const compression = require('compression')
 
 const dev = process.env.NODE_ENV !== 'production'
 const production = process.env.NODE_ENV === 'production';
@@ -19,6 +20,8 @@ app
       server.set('forceSSLOptions', { trustXFPHeader: true });
       server.use(enforceSSL);
     }
+
+    server.use(compression());
 
     server.get('/p/:id', (req, res) => {
       const actualPage = '/post'
