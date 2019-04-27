@@ -9,6 +9,9 @@ const About = () => (
         one-on-one meetings that Ryan Cromwell has with team members.</p>
 
       <p>Credit to <a href="https://jasonevanish.com/2014/05/29/101-questions-to-sk-in-1-on-1s/">Jason Evanish</a> for so many wonderful questions, without which Ryan's one-on-one's would not have been nearly as valuable.</p>
+
+      <p>Shout out to the Sassmaster, <a href="https://zastrow.co/">Philip Zastrow</a>, for kindly lending his amazing design skills to Birsual.com.</p>
+
     </div>
   </Layout>
 )
