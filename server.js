@@ -30,9 +30,11 @@ app
       return handle(req, res)
     })
 
-    server.listen(process.env.PORT, (err) => {
+    const port = process.env.PORT || 3000;
+
+    server.listen(port, (err) => {
       if (err) throw err
-      console.log('> Ready on http://localhost:3000')
+      console.log(`> Ready on http://localhost:${port}`)
     })
   })
   .catch((ex) => {
