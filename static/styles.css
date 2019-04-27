@@ -49,6 +49,10 @@ p {
   font-size: 1.125rem;
 }
 
+.about > p {
+  margin-bottom: 1.25em;
+}
+
 li {
   font-size: 1.125rem;
 }
