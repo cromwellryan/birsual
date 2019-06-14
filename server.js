@@ -23,8 +23,8 @@ app
 
     server.use(compression());
 
-    server.get('/p/:id', (req, res) => {
-      const actualPage = '/post'
+    server.get('/q/:id', (req, res) => {
+      const actualPage = '/question'
       const queryParams = { id: req.params.id } 
       app.render(req, res, actualPage, queryParams)
     })

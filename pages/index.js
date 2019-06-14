@@ -11,6 +11,9 @@ const Index = ({question}) => (
       <p className="question">{smartQuotes(question.text)}</p>
       <footer className="question-footer">
         <p className="citation">&ndash;&nbsp;<a href={question.attribution.url} className="citation-link">{question.attribution.name}</a></p>
+        <a className="question-permalink" href={questionUrl(question)}>
+            permalink
+        </a>
       </footer>
     </blockquote>
   </Layout>
@@ -29,15 +32,20 @@ async function getSpecificEntryByIndex(index) {
   const res = await fetch(url)
   const data = await res.json()
 
-  const entryFromContentful = data.items[0].fields;
+  const { fields: entryFromContentful, sys: {id} } = data.items[0];
 
   return { 
+    id,
     text: entryFromContentful.text,
     attribution: {
       name: entryFromContentful.attributionName,
       url: entryFromContentful.attributionUrl
     }
   };
+}
+
+function questionUrl(question) {
+  return `/q/${question.id}`;
 }
 
 function getRandomInt(max) {
