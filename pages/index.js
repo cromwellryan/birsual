@@ -25,7 +25,7 @@ async function entryCount() {
   return data.total;
 }
 
-async function getSpecificEntry(index) {
+async function getSpecificEntryByIndex(index) {
   const url = `https://cdn.contentful.com/spaces/${spaceId}/environments/${environmentId}/entries?content_type=question&access_token=${accessToken}&skip=${index}&limit=1`;
   const res = await fetch(url)
   const data = await res.json()
@@ -55,7 +55,7 @@ async function randomEntryIndex() {
 
   const index = getRandomInt(max-1);
 
-  const entry = await getSpecificEntry(index);
+  const entry = await getSpecificEntryByIndex(index);
 
   return entry;
 }
