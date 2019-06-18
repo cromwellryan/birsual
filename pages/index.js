@@ -11,7 +11,9 @@ const Index = ({question}) => (
       <p className="question">{smartQuotes(question.text)}</p>
       <footer className="question-footer">
         <p className="citation">&ndash;&nbsp;<a href={question.attribution.url} className="citation-link">{question.attribution.name}</a></p>
-        <a href={questionUrl(question)}>^</a>
+        <a className="question-permalink" href={questionUrl(question)}>
+            permalink
+        </a>
       </footer>
     </blockquote>
   </Layout>
@@ -43,7 +45,7 @@ async function getSpecificEntryByIndex(index) {
 }
 
 function questionUrl(question) {
-  return `/${question.id}`;
+  return `/q/${question.id}`;
 }
 
 function getRandomInt(max) {

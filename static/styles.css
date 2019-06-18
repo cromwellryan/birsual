@@ -163,14 +163,42 @@ a:not([class]):hover {
   letter-spacing: -0.025em;
 }
 
-.citation {
-  margin-top: 4vmin;
+.question-permalink {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  transition: color 250ms var(--timing), border-color 250ms var(--timing);
+
   font-size: 0.75rem;
   font-family: var(--font-sans);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.125em;
   color: #777;
+}
+
+.question-permalink:hover {
+  color: var(--color-link-hover);
+  border-color: var(--color-link);
+}
+
+.question-footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin-top: 4vmin;
+}
+
+.citation {
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  color: #777;
+
+  flex: 1 1 auto;
 }
 
 @media (min-width: 40rem) {
