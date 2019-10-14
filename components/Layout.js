@@ -1,6 +1,16 @@
 import Header from './Header'
 import Head from 'next/head';
 
+const metaDescription = (question) => {
+  let description = "Questions and conversation starters for one-on-one meetings";
+
+  if (question) {
+    description = question.text;
+  }
+
+  return <meta name="og:description" content={description} />;
+}
+
 const Layout = (props) => (
   [ 
     <Head>
@@ -17,6 +27,9 @@ const Layout = (props) => (
       <meta name="msapplication-TileColor" content="#ffffff"/>
       <meta name="msapplication-config" content="/static/browserconfig.xml"/>
       <meta name="theme-color" content="#ffffff"/>
+      <title>Birsual</title>
+      <meta name="og:title" context="Birsual" />
+      {metaDescription(props.question)}
     </Head>,
     <Header />,
     <main className="main">

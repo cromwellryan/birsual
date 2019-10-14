@@ -5,7 +5,7 @@ import smartQuotes from 'smartquotes';
 import { spaceId, environmentId, accessToken } from '../contentful.js';
 
 const Question = ({question}) => (
-  <Layout>
+  <Layout question={question}>
     <blockquote className="container">
       <p className="question">{smartQuotes(question.text)}</p>
       <footer className="question-footer">
