@@ -12,6 +12,12 @@ const About = () => (
 
       <p>Shout out to the Sassmaster, <a href="https://zastrow.co/">Philip Zastrow</a>, for kindly lending his amazing design skills to Birsual.com.</p>
 
+      <br />
+
+      <p>
+        A thing from <a href="https://twitter.com/cromwellryan">Ryan Cromwell</a>
+      </p>
+
     </div>
   </Layout>
 )
