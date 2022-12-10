@@ -22,7 +22,7 @@
   "dependencies": {
     "check-node-version": "^3.2.0",
     "compression": "^1.7.4",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-force-ssl": "^0.3.2",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^8.0.3",
