@@ -8,6 +8,9 @@
     }
   ],
   "env": {
+    "ACCESS_TOKEN": { "required": true },
+    "SPACE_ID": { "required": true },
+    "ENVIRONMENT_ID": { "required": true }
   },
   "formation": {
     "web": {
