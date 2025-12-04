@@ -17,5 +17,5 @@
   "name": "onequestion",
   "scripts": {
   },
-  "stack": "heroku-18"
+  "stack": "heroku-24"
 }
